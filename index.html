@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mod-Adapter: Tuning-Free and Versatile Multi-concept Personalization via Modulation Adapter</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<style>
+  .author-block {
+    display: inline-block;     /* 横向排列 */
+    margin-right: 20px;        /* 两个作者之间的间距 */
+    margin-bottom: 5px;        /* 如果换行时行间隔稍大也可设置 */
+  }
+</style>
+
+<style>
+.publication-title {
+  max-width: 1000px;         /* 限制宽度，避免太宽或太窄 */
+  margin: 0 auto;           /* 水平居中 */
+  line-height: 1.6;         /* 行距适中 */
+  font-size: 2.2rem;        /* 控制字体大小，可根据需要调小一点 */
+  word-break: break-word;  /* 避免内容溢出时强制换行 */
+}
+</style>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Mod-Adapter: Tuning-Free and Versatile Multi-concept Personalization via Modulation Adapter</h1>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./static/pdf/512_Mod_Adapter_Tuning_Free_an.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- 方案一：使用全宽容器 + 限制最大宽度 -->
+      <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+        <img src="./static/pdf/teaser_V2.0.svg" 
+             alt="Teaser SVG Image" 
+             style="max-width: min(1400px, 1000%);  /* 控制最大宽度 */
+                    height: auto; 
+                    border-radius: 12px; 
+                    box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      </div>
+
+      <!-- 方案二：保持原始结构优化 -->
+      <!-- <figure class="image" style="margin: 0 auto 1.5rem; width: 90%; max-width: 1200px;">
+        <img src="/static/pdf/teaser_V2.0.svg" 
+             alt="Teaser SVG Image" 
+             style="width: 100%; 
+                    height: auto;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      </figure> -->
+
+      <h2 class="subtitle has-text-centered" style="margin-top: 1.5rem;">
+        Results of our multi-concept personalized image generation method. Our method enables customizing both object and abstract concepts (e.g., pose, light, surface) without test-time fine-tuning. The colored words in the prompt below image indicate concepts to be personalized.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Personalized text-to-image generation aims to synthesize images of user-provided concepts in diverse contexts. Despite recent progress in multi-concept personalization, most are limited to object concepts and struggle to customize abstract concepts (e.g., pose, lighting). 
+            Some methods have begun exploring multi-concept personalization supporting abstract concepts, but they require test-time fine-tuning for each new concept, which is time-consuming and prone to overfitting on limited training images.
+            In this work, we propose a novel tuning-free method for multi-concept personalization that can effectively customize both object and abstract concepts without test-time fine-tuning. 
+            Our method builds upon the modulation mechanism in pre-trained Diffusion Transformers (DiTs) model, leveraging the localized and semantically meaningful properties of the modulation space. Specifically, we propose a novel module, Mod-Adapter, to predict concept-specific modulation direction for the modulation process of concept-related text tokens.
+            It incorporates vision-language cross-attention for extracting concept visual features, and Mixture-of-Experts (MoE) layers that adaptively map the concept features into the modulation space.
+            Furthermore, to mitigate the training difficulty caused by the large gap between the concept image space and the modulation space, we introduce a VLM-guided pre-training strategy that leverages the strong image understanding capabilities of vision-language models to provide semantic supervision signals.
+            For a comprehensive comparison, we extend a standard benchmark by incorporating abstract concepts. Our method achieves state-of-the-art performance in multi-concept personalization, supported by quantitative, qualitative, and human evaluations.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+
+<div class="container is-max-desktop has-text-centered">
+  <figure class="image">
+    <img src="./static/pdf/More_compare_single_00.png" alt="More single-concept personalization results of our method. Colored words in the prompt
+indicate concepts to be personalized; underlined text highlights elements reflecting prompt alignment">
+      <h2 class="subtitle has-text-centered" style="margin-top: 1.5rem;">
+        <span class="dnerf"></span> More single-concept personalization results of our method. Colored words in the prompt
+        indicate concepts to be personalized; underlined text highlights elements reflecting prompt alignment.
+      </h2>
+  </figure>
+</div>
+
+<div style="height: 10rem;"></div>
+
+<div class="container is-max-desktop has-text-centered">
+  <figure class="image">
+    <img src="./static/pdf/More_compare_multi_00.png" alt="More multi-concept personalization results of our method. Colored words in the prompt
+indicate concepts to be personalized; underlined text highlights elements reflecting prompt alignment.">
+    <h2 class="subtitle has-text-centered" style="margin-top: 1.5rem;">
+        <span class="dnerf"></span> More multi-concept personalization results of our method. Colored words in the prompt
+        indicate concepts to be personalized; underlined text highlights elements reflecting prompt alignment.
+    </h2>
+  </figure>
+</div>
+
+
+<div style="height: 10rem;"></div>
+<!--
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+-->
+
+</body>
+</html>
